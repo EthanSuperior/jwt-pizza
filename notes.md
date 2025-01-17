@@ -9,12 +9,12 @@ As part of `Deliverable ⓵ Development deployment: JWT Pizza`, start up the app
 | View home page                                      | home.tsx               | none                                                  | none                                                |
 | Register new user<br/>(t@jwt.com, pw: test)         | register.tsx           | [POST]/api/auth                                       | INSERT INTO auth (token, userId) VALUES (?, ?)      |
 | Login new user<br/>(t@jwt.com, pw: test)            | login.tsx              | [PUT]/api/auth                                        | INSERT INTO auth (token, userId) VALUES (?, ?)      |
-| Order pizza                                         | menu.tsx payment.tsx   | [GET]/api/order/menu [GET]/api/order [POST]/api/order |                                                     |
-| Verify pizza                                        | delivery.tsx           | [POST]/api/order/verify                               |                                                     |
+| Order pizza                                         | menu.tsx payment.tsx   | [GET]/api/order/menu [GET]/api/order [POST]/api/order | SELECT id, name FROM store WHERE franchiseId=?      |
+| Verify pizza                                        | delivery.tsx           | [POST]/api/order/verify                               | SELECT id, name FROM store WHERE franchiseId=?      |
 | View profile page                                   | dinerDashboard.tsx     | [GET]/api/order                                       | SELECT id, name FROM user WHERE email=?             |
 | View franchise<br/>(as diner)                       | franchiseDashboard.tsx | [GET]/api/order                                       | SELECT id, name FROM store WHERE franchiseId=?      |
 | Logout                                              | logout.tsx             | [DELETE]/api/auth                                     | DELETE FROM auth WHERE token=?                      |
-| View About page                                     | about.tsx              | none                                                  |                                                     |
+| View About page                                     | about.tsx              | none                                                  | SELECT id, name FROM store WHERE franchiseId=?      |
 | View History page                                   | history.tsx            | none                                                  | none                                                |
 | Login as franchisee<br/>(f@jwt.com, pw: franchisee) | login.tsx              | /api/franchise                                        | none                                                |
 | View franchise<br/>(as franchisee)                  | franchiseDashboard.tsx | /api/franchise                                        | SELECT id, name FROM store WHERE franchiseId=?      |
