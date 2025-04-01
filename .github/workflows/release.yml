@@ -16,9 +16,8 @@ jobs:
   release:
     runs-on: ubuntu-latest
     env:
-      version: ${{ github.event.inputs.version }}
-    environment:
       name: production
+      version: ${{ github.event.inputs.version }}
       url: https://pizza.evankchase.click
     steps:
       - name: Create OIDC token to AWS
