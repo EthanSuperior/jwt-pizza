@@ -77,8 +77,8 @@ jobs:
       id-token: write
     runs-on: ubuntu-latest
     env:
-      name: production
-      url: https://pizza.evankchase.click
+      name: staging
+      url: https://stage-pizza.byucsstudent.click
       version: ${{needs.build.outputs.version}}
     steps:
       - name: Create OIDC token to AWS
