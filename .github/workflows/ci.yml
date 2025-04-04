@@ -22,12 +22,13 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "22.x"
+          node-version: "20.x"
 
       - name: Build
         run: |
           printf '{"version": "%s" }' ${{steps.set_version.outputs.version}} > public/version.json
-          npm ci && npm run build
+          rm -rf node_modules package-lock.json
+          npm i && npm run build
 
       # - name: Run tests
       #   run: |
