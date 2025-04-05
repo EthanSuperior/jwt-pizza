@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'Version to release'
+        description: "Version to release"
         required: true
       description:
         required: true
@@ -16,8 +16,9 @@ jobs:
   release:
     runs-on: ubuntu-latest
     env:
-      name: production
       version: ${{ github.event.inputs.version }}
+    environment:
+      name: production
       url: https://pizza.evankchase.click
     steps:
       - name: Create OIDC token to AWS
