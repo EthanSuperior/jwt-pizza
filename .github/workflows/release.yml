@@ -41,6 +41,10 @@ jobs:
           while [ "$(aws cloudfront get-distribution --id ${{ secrets.DISTRIBUTION_ID }} --query 'Distribution.Status' --output text)" != "Deployed" ]; do echo "Distribution is still updating..."; sleep 5; done
           aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
 
+      - name: Annotate deployment in Grafana
+        run: |
+          curl -s -X POST https://youraccountname.grafana.net/api/annotations -H "Authorization: Bearer ${{ secrets.GRAFANA_ACCESS_TOKEN }}" -H "Content-Type:application/json" -d '{"dashboardUID":"eehunfjt7widcc", "panelId":1, "tags":["frontend","production"], "text":"Version '"$version"' deployed" }'
+
       - name: Create production release
         uses: ncipollo/release-action@2c591bcc8ecdcd2db72b97d6147f871fcd833ba5
         with:

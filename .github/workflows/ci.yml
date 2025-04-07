@@ -109,6 +109,9 @@ jobs:
           # Wait for the distribution to deploy and then invalidate the cache
           while [ "$(aws cloudfront get-distribution --id ${{ secrets.DISTRIBUTION_ID }} --query 'Distribution.Status' --output text)" != "Deployed" ]; do echo "Distribution is still updating..."; sleep 5; done
           aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
+      - name: Annotate deployment in Grafana
+        run: |
+          curl -s -X POST https://youraccountname.grafana.net/api/annotations -H "Authorization: Bearer ${{ secrets.GRAFANA_ACCESS_TOKEN }}" -H "Content-Type:application/json" -d '{"dashboardUID":"eehunfjt7widcc", "panelId":1, "tags":["dev", "frontend"], "text":"Stage version '"$version"' deployed" }'
 
   release:
     needs:
