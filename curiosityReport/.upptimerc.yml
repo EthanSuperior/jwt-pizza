@@ -1,0 +1,35 @@
+owner: EthanSuperior # Your GitHub organization or username, where this repository lives
+repo: jwt-pizza-status # The name of this repository
+
+sites:
+  - name: JWT-Pizza
+    url: https://pizza.evankchase.click/
+  # - name: JWT-Pizza (DEV)
+  #   url: https://stage-pizza.evankchase.click/
+  - name: JWT-Pizza Service
+    url: https://pizza-service.evankchase.click/
+  - name: JWT-Pizza Factory
+    url: https://pizza-factory.cs329.click/api/docs
+
+status-website:
+  cname: pizza-status.evankchase.click
+  favicon: https://raw.githubusercontent.com/devops329/jwt-pizza/main/public/jwt-pizza-icon.png
+  logoUrl: https://raw.githubusercontent.com/devops329/jwt-pizza/main/public/jwt-pizza-logo.png
+  name: JWT Pizza Status
+  theme: light
+  introTitle: "**JWT Pizza** is a pizza buying service made by the BYU CS329 team."
+  introMessage: This is a simple satus page displaying the up time of the JWT-Pizza service, made using [upptime](https://github.com/upptime/upptime).
+  navbar:
+    - title: Status
+      href: /
+    # - title: Class Repo
+    #   href: https://github.com/devops329/devops
+    - title: Website
+      href: https://github.com/$OWNER/jwt-pizza
+    - title: Service
+      href: https://github.com/$OWNER/jwt-pizza-service
+    # - title: GitHub
+    #   href: https://github.com/$OWNER/$REPO
+
+# Upptime also supports notifications, assigning issues, and more
+# See https://upptime.js.org/docs/configuration
