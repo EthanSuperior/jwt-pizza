@@ -12,6 +12,11 @@ Upptime is easy to use and set-up, it works great, the base instructions are pre
 
 I also investigated some alternatives based off of [this list](https://github.com/ivbeg/awesome-status-pages), but despite there being several good options, the clairty of Upptime, along with my familiarity with github actions made Upptime the most attracting option.
 
+### Learned
+
+I was aware of status pages before, but I have never really used them before, one thing I found intresting is that componies that provide status pages advertise that it is so that people can built confidence in their clientel when outages do occur as they can see the company has a history of like X% uptime and was able to resolve prior outages within X minutes. Which was pretty cool, I've always used things like downdetector.com or the like to find out the status of webpages, but now I know I can look for the companies status page and get additional information regarding the outage.
+For how easy the status page was to setup I'm suprised by both how profesional it turned out and how ingenius upptime is in its design, leveraging github actions. Though I did not test it extensivly, Upptime allows you to inject html, js and css into the final page that is rendered, allowing you to customize it in anyway you want. Furthermore it suports arbitrary body and headers to the requests in makes to check to see if a website is online, so you can even make checks to hidden api's to ensure proper validation of the status of websites.
+
 ### Process
 
 1. First I visited the Upptime [repo](https://github.com/upptime/upptime) which lead me to their website.
@@ -47,7 +52,7 @@ I also investigated some alternatives based off of [this list](https://github.co
 8. Under `Permissions` > `Repository permissions` enable read-write access for Actions, Contents, Issues and Workflows
 9. Hit Generate token, then once more.
 10. > [!IMPORTANT]
-   > Copy the token, do not lose this
+    > Copy the token, do not lose this
 11. Return the `jwt-pizza-status` repo
 12. Goto Settings > Secrets and variables
 13. Add a new Repository secret, the name of the secret is `GH_PAT` the value is the token you copyied.
