@@ -1,7 +1,6 @@
 import { PizzaService, Franchise, Store, OrderHistory, User, Menu, Order, Endpoints, OrderResponse, JWTPayload } from './pizzaService';
 
 const pizzaServiceUrl = import.meta.env.VITE_PIZZA_SERVICE_URL;
-const pizzaFactoryUrl = import.meta.env.VITE_PIZZA_FACTORY_URL;
 
 class HttpPizzaService implements PizzaService {
   async callEndpoint(path: string, method: string = 'GET', body?: any): Promise<any> {
@@ -85,7 +84,7 @@ class HttpPizzaService implements PizzaService {
   }
 
   async verifyOrder(jwt: string): Promise<JWTPayload> {
-    return this.callEndpoint(pizzaFactoryUrl + '/api/order/verify', 'POST', { jwt });
+    return this.callEndpoint('/api/order/verify', 'POST', { jwt });
   }
 
   async getFranchise(user: User): Promise<Franchise[]> {
@@ -114,7 +113,7 @@ class HttpPizzaService implements PizzaService {
 
   async docs(docType: string): Promise<Endpoints> {
     if (docType === 'factory') {
-      return this.callEndpoint(pizzaFactoryUrl + `/api/docs`);
+      return this.callEndpoint(`/api/docs/factory`);
     }
     return this.callEndpoint(`/api/docs`);
   }

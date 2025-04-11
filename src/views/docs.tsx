@@ -6,7 +6,7 @@ import { Endpoints } from '../service/pizzaService';
 
 const apis = [
   { name: 'service', url: import.meta.env.VITE_PIZZA_SERVICE_URL },
-  { name: 'factory', url: import.meta.env.VITE_PIZZA_FACTORY_URL },
+  { name: 'factory', url: import.meta.env.VITE_PIZZA_SERVICE_URL },
 ];
 
 const Docs = () => {
