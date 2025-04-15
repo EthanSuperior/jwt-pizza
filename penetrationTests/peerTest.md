@@ -102,7 +102,7 @@
   | Date           | April 11, 2025 |
   | Target         | pizza.evankchase.click |
   | Classification | Identification and Authentication Failures |
-  | Severity       | N/A |
+  | Severity       | 2 |
   | Description    | Admin password was resistant to dictionary attack. And not stored with plaintext on github. |
   | Images         | ![Failed Account Access](/penetrationTests/brute_force_fail.png) |
   | Corrections    | No corrections needed. |
